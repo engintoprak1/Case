@@ -1,21 +1,22 @@
 ﻿namespace Application.Wrappers;
 
-public class Response<T>
+public class Response<T> : Response, IResponse<T>
 {
-    public T Value { get; set; }
-    public string Message { get; set; }
-    public bool Status { get; set; }
+    public T Value { get; set; } = default!;
 
-    public Response(T value, bool status, string message = "")
+    public Response(T value,bool status, string message = "") : base(status, message)
     {
-        Status = status;
         Value = value;
-        Message = message;
     }
+
+    public Response(bool status, string message = "") : base(status, message)
+    {
+    }
+
 
 }
 
-public class Response
+public class Response : IResponse
 {
     public string Message { get; set; }
     public bool Status { get; set; }

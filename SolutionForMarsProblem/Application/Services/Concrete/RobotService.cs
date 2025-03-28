@@ -22,10 +22,7 @@ public class RobotService : IRobotService
 
                     if (!leftResult.Status)
                     {
-                        return new Response<Location>(location, false)
-                        {
-                            Message = leftResult.Message
-                        };
+                        return new Response<Location>(false, leftResult.Message);
                     }
                     break;
 
@@ -35,10 +32,7 @@ public class RobotService : IRobotService
 
                     if (!rightResult.Status)
                     {
-                        return new Response<Location>(location,false)
-                        {
-                            Message = rightResult.Message
-                        };
+                        return new Response<Location>(false, rightResult.Message);
                     }
                     break;
 
@@ -48,10 +42,7 @@ public class RobotService : IRobotService
 
                     if (!moveResult.Status)
                     {
-                        return new Response<Location>(location,false)
-                        {
-                            Message = moveResult.Message
-                        };
+                        return new Response<Location>(false, moveResult.Message);
                     }
 
                     break;
